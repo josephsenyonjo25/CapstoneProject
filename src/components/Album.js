@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import '../App.css';
 
 
-class Footer extends Component {
+class Album extends Component {
     render() { 
       return (
-        <div className="Footer"> 
-            <p>&copy; 2020 Music App</p>
+        <div className="Albums"> 
+           
 
         </div>
       );
@@ -14,4 +14,4 @@ class Footer extends Component {
   }
 
 
-export default Footer;
+export default Album;
