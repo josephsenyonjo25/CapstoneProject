@@ -7,7 +7,7 @@ import {fetchAlbums} from '../actions/AlbumsActions'
 
 //Redux state is now in the props of this component
 
-const AlbumsPage = ({ dispatch,loading, Albums, hasErrors}) => {
+const AlbumsPage = ({ dispatch,loading, Album, hasErrors}) => {
     useEffect(() => {
         dispatch(fetchAlbums())
     }, [dispatch])
@@ -17,8 +17,8 @@ const AlbumsPage = ({ dispatch,loading, Albums, hasErrors}) => {
     const renderAlbums = () => {
         if (loading) return <p> Loading Albums</p>
         if (hasErrors) return <p> Unable to display Albums.</p>
-        console.log(Albums)
-        return Albums.map(Albums => <Albums key={Album.id} Album={Album} />)
+        console.log(Album)
+        return Album.map(Album => <Album key={Album.id} Album={Album} />)
     }    
     return (
     <section>

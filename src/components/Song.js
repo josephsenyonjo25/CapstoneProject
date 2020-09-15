@@ -2,16 +2,13 @@ import React, {Component} from 'react';
 import '../App.css';
 
 
-class Song extends Component {
-    render() { 
-      return (
+export const Song = ({ song }) => (
         <div className="Songs"> 
            
 
         </div>
       );
-    }
-  }
+   
 
 
 export default Song;

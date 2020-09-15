@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {  Artist } from '../components/Artist';
 
 //Bring in the Async
-import {fetchArtists} from '../actions/ArtistActions'
+import {fetchArtists} from '../actions/ArtistsActions'
 
 //Redux state is now in the props of this component
 

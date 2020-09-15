@@ -2,9 +2,12 @@ import React, {Component} from 'react';
 import '../App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
-import Artists from './Artists';
-import Albums from './Albums';
-import Songs from './Songs';
+import Artist from './Artist';
+import Album from './Album';
+import Song from './Song';
+import Albums from '../pages/AlbumsPage';
+import Artists from '../pages/ArtistsPage';
+import Songs from '../pages/SongsPage';
 
 class Navigation extends Component {
     render() { 
@@ -21,9 +24,9 @@ class Navigation extends Component {
             
 	          <Switch>
 	            <Route exact path ='/' component={Home} />
-	            <Route path ='/artists' component={Artists} />
-              <Route path ='/albums' component={Albums} />
-              <Route path ='/songs' component={Songs} />
+	            <Route path ='/artists' component={Artist} />
+              <Route path ='/albums' component={Album} />
+              <Route path ='/songs' component={Song} />
 	          </Switch>
           </Router>
         </div>

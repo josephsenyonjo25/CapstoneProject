@@ -2,16 +2,13 @@ import React, {Component} from 'react';
 import '../App.css';
 
 
-class Album extends Component {
-    render() { 
-      return (
+export const Album = ({ album }) => (
         <div className="Albums"> 
            
 
         </div>
       );
-    }
-  }
+  
 
 
 export default Album;
