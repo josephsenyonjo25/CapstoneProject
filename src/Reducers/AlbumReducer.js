@@ -1,12 +1,12 @@
 import * as actions from '../actions/AlbumsActions'
 
-export const initialState = {
+const initialState = {
     albums:[],
     loading:false,
     hasErrors:false
 }
 
-export default function AlbumReducer(state =initialState, action){
+export default (state =initialState, action) =>{
     switch(action.type) {
         case actions.GET_ALBUMS:
             return { ...state, loading:true}
@@ -18,4 +18,5 @@ export default function AlbumReducer(state =initialState, action){
     default:
         return state
 }
+
 }

@@ -1,7 +1,7 @@
 
 import React, { useEffect } from "react";
 import { connect } from 'react-redux';
-import {  Artist } from '../components/Artist';
+import  Artist from '../components/Artist';
 
 //Bring in the Async
 import {fetchArtists} from '../actions/ArtistsActions'

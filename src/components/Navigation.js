@@ -5,9 +5,9 @@ import Home from './Home';
 import Artist from './Artist';
 import Album from './Album';
 import Song from './Song';
-import Albums from '../pages/AlbumsPage';
-import Artists from '../pages/ArtistsPage';
-import Songs from '../pages/SongsPage';
+//import Albums from '../pages/AlbumsPage';
+//import Artists from '../pages/ArtistsPage';
+//import Songs from '../pages/SongsPage';
 
 class Navigation extends Component {
     render() { 

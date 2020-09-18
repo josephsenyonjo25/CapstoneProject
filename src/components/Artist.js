@@ -1,16 +1,28 @@
-import React, {Component} from 'react';
-import '../App.css';
 
-export const Artist = ({ artist }) => (
+import React from 'react';
 
-        <div className="Artists"> 
-           <form>
-                <label>Search For An Artist</label>
-                <input type ="text" placeholder="Enter artist here"/>
-                <button type ="submit" >Get Artist</button>
+      
+      class Artist extends React.Component{
+       render(){
+        const {handleSubmit} = this.props
+        return (
+            <form onSubmit= {handleSubmit}>
+               <label>
+                   Artist:
+                   <input type ="text" artist ="artist" />
+                   </label> 
+                   <input type ="submit"
+                   value = "Submit" />
             </form>
-            <p>Artist: </p>
-        </div>
-      );
- 
-export default Artist;
+        );
+
+       }
+           
+            
+      }
+      
+      
+      
+      
+      export default Artist;
+

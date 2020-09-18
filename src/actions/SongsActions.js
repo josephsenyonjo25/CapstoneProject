@@ -1,12 +1,13 @@
-export const GET_SONGS = 'GET_SONGS'
-export const GET_SONGS_SUCCESS = 'GET_SONGS_SUCCESS'
-export const GET_SONGS_FAILURE = 'GET_SONGS_FAILURE'
+export const GET_SONGS = 'GET_SONGS';
+export const GET_SONGS_SUCCESS = 'GET_SONGS_SUCCESS';
+export const GET_SONGS_FAILURE = 'GET_SONGS_FAILURE';
 
 //Create my Redux action (using action creators)
 
-export const getSongs =() => ({
+export const getSongs =(song) => ({
     type:GET_SONGS,
-})
+    payload:song
+});
 
 export const getSongsSuccess =(Songs) => ({
     type:GET_SONGS_SUCCESS,
@@ -21,15 +22,17 @@ export const getSongsFailure =() => ({
 
 export function fetchSongs(){
     return async (dispatch) => {
+        console.log("fetchSongs")
         dispatch(getSongs())
 
         try{
             const res = await
-            fetch('https://jsonplaceholder.typicode.com/posts')
+            fetch('https://audiomack.com/v1')
             const data = await res.json()
             console.log(data)
           dispatch(getSongsSuccess(data))
         } catch (error) {
+            console.log()
             dispatch(getSongsFailure())
     }
 

@@ -6,7 +6,7 @@ export const initialState = {
     hasErrors:false
 }
 
-export default function SongReducer(state =initialState, action){
+export default (state =initialState, action) => {
     switch(action.type) {
         case actions.GET_SONGS:
             return { ...state, loading:true}
@@ -19,3 +19,8 @@ export default function SongReducer(state =initialState, action){
         return state
 }
 }
+/*export function songReducer (state =initialState, action) => {
+    switch(action.type) {
+        case GET_SONGS
+        let songs =[...state.songs, action.payload]*/
+    

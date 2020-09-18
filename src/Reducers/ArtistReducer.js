@@ -6,7 +6,7 @@ export const initialState = {
     hasErrors:false
 }
 
-export default function ArtistReducer(state =initialState, action){
+export default (state =initialState, action) =>{
     switch(action.type) {
         case actions.GET_ARTISTS:
             return { ...state, loading:true}
