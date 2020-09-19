@@ -1,42 +1,51 @@
-import React, { useEffect } from "react";
+import React from 'react';
+import { fetchSongs, getSongs } from '../actions/SongsActions'
 import { connect } from 'react-redux';
-import Song from '../components/Song';
+import Song from "../components/Song"
+import '../App.css';
 
-//Bring in the Async
-import {getSongs} from '../actions/SongsActions';
+class SongsPage extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            song: ''
+        };
+    }
 
-//Redux state is now in the props of this component
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.props.dispatch(fetchSongs(this.state.song))
+    }
 
-const SongsPage = ({ dispatch,loading, Songs, hasErrors}) => {
-    useEffect(() => {
-        dispatch(getSongs())
-    }, [dispatch])
+    renderSongs = () => {
+        if (this.props.loading) return <p> Loading Songs</p>
+        if (this.props.hasErrors) return <p> Unable to display Songs.</p>
+        return this.props.songs.map(song => <Song song={song.track}/>)
+    }
 
-    //show loading, error, or success
+    render() {
+        return (
+            <>
+                <form onSubmit={e => this.handleSubmit(e)}>
+                    <label>
+                        Song:
+                <input value={this.state.song} onChange={e => this.setState({ song: e.target.value })} type="text" song="song" />
+                    </label>
+                    <button>Submit</button>
+                </form>
+                {this.renderSongs()}
+            </>
+        );
 
-    const renderSongs = () => {
-        if (loading) return <p> Loading Songs</p>
-        if (hasErrors) return <p> Unable to display Songs.</p>
-        console.log(Songs)
-        return Song.map(Song => <Song key={Song.id} Song={Song} />)
-    }    
-    return (
-    <section>
-    <div className ="Songspage">
-    <h1 id ="songs">Songs</h1>
-    {renderSongs()}
-    </div>
-    </section>
-    )
+    }
 }
-const mapStateToProps = (state) => ({
-    loading: state.Songs.loading,
-    posts: state.Songs.Songs,
-    hasErrors: state.Songs.hasErrors,
-});
 
-
-
-
+const mapStateToProps = state => {
+    return {
+        loading: state.song.loading,
+        hasErrors: state.song.hasErrors,
+        songs: state.song.songs
+    }
+}
 
 export default connect(mapStateToProps)(SongsPage);

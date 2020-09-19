@@ -4,37 +4,34 @@ export const GET_SONGS_FAILURE = 'GET_SONGS_FAILURE';
 
 //Create my Redux action (using action creators)
 
-export const getSongs =(song) => ({
-    type:GET_SONGS,
-    payload:song
+export const getSongs = (songs) => ({
+    type: GET_SONGS,
+    payload: songs
 });
 
-export const getSongsSuccess =(Songs) => ({
-    type:GET_SONGS_SUCCESS,
-    payload:Songs,
+export const getSongsSuccess = (Songs) => ({
+    type: GET_SONGS_SUCCESS,
+    payload: Songs,
 })
 
-export const getSongsFailure =() => ({
-    type:GET_SONGS_FAILURE,
+export const getSongsFailure = () => ({
+    type: GET_SONGS_FAILURE,
 })
 
 //Combining all actions in ansycronous function
 
-export function fetchSongs(){
-    return async (dispatch) => {
-        console.log("fetchSongs")
-        dispatch(getSongs())
+export function fetchSongs(song) {
+    console.log('song:', song);
 
-        try{
-            const res = await
-            fetch('https://audiomack.com/v1')
-            const data = await res.json()
-            console.log(data)
-          dispatch(getSongsSuccess(data))
-        } catch (error) {
-            console.log()
-            dispatch(getSongsFailure())
+    return async dispatch => {
+        await fetch(`https://shazam.p.rapidapi.com/search?term=${song}`, {
+            headers: {
+                'x-rapidapi-key': process.env.REACT_APP_SHAZAM_API,
+                'x-rapidapi-host': 'shazam.p.rapidapi.com'
+            }
+        })
+            .then(res => res.json())
+            .then(json => dispatch(getSongs(json.tracks.hits)))
+            .catch(() => dispatch(getSongsFailure()))
     }
-
-}
 }

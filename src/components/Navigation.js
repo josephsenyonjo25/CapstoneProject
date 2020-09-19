@@ -7,7 +7,7 @@ import Album from './Album';
 import Song from './Song';
 //import Albums from '../pages/AlbumsPage';
 //import Artists from '../pages/ArtistsPage';
-//import Songs from '../pages/SongsPage';
+import Songs from '../pages/SongsPage';
 
 class Navigation extends Component {
     render() { 
@@ -26,7 +26,7 @@ class Navigation extends Component {
 	            <Route exact path ='/' component={Home} />
 	            <Route path ='/artists' component={Artist} />
               <Route path ='/albums' component={Album} />
-              <Route path ='/songs' component={Song} />
+              <Route path ='/songs' component={Songs} />
 	          </Switch>
           </Router>
         </div>

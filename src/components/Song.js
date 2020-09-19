@@ -1,44 +1,17 @@
-import React from 'react';
-//import {fetchSongs} from '../actions/SongsActions'
-import {fetchSongs, getSongs} from '../actions/SongsActions'
-import { connect } from 'react-redux';
-//import {Songs} from '../pages/SongsPage' 
-import '../App.css';
+import React, { useEffect } from "react";
+//Redux state is now in the props of this component
 
-class Song extends React.Component{
+const Song = (props) => {
+    const { song } = props;
+    console.log(song);
 
-    constructor() {
-        super();
-        this.state = {
-            song: ''
-        };
-    }
-    componentDidMount(){
-        console.log(this.props)
-        //this.props.dispatch(GET_SONGS)
-        this.props.dispatch(fetchSongs())
-     }
-    handleSubmit = (e) =>{
-    e.preventDefault()
-    this.props.dispatch(fetchSongs())
-    }
-    render(){
+    return (
+        <div style={{width: "150px", height: "300px", display: "inline", paddingRight: "30px"}}>
+            <h1>{song.title}</h1>
+            <h2>{song.subtitle}</h2>
+        </div>
 
-     return (
-        
-         <form onSubmit= {this.handleSubmit}>
-            <label>
-                Song:
-                <input type ="text" song ="song" />
-                </label> 
-                <button>Submit</button>
-         </form>
-     );
-
-    }
+    )
 }
-      
-      export default connect() (Song);
 
-
-
+export default Song;
