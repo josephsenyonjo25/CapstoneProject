@@ -1,17 +1,22 @@
-import React, { useEffect } from "react";
-//Redux state is now in the props of this component
+import React from "react";
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 const Song = (props) => {
     const { song } = props;
-    console.log(song);
-
+    console.log(song)
     return (
-        <div style={{width: "150px", height: "300px", display: "inline", paddingRight: "30px"}}>
-            <h1>{song.title}</h1>
-            <h2>{song.subtitle}</h2>
-        </div>
-
-    )
+        <Card>
+            <CardImg top src={song.images.coverart} alt="Card image cap" />
+            <CardBody>
+                <CardTitle>{song.title}</CardTitle>
+                <CardSubtitle>{song.subtitle}</CardSubtitle>
+                <a href={song.share.href}><Button>View More</Button></a>
+            </CardBody>
+        </Card>
+    );
 }
 
 export default Song;

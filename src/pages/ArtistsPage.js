@@ -4,36 +4,51 @@ import { connect } from 'react-redux';
 import  Artist from '../components/Artist';
 
 //Bring in the Async
-import {fetchArtists} from '../actions/ArtistsActions'
+import {fetchArtists} from '../actions/ArtistsActions';
 
 //Redux state is now in the props of this component
 
-const ArtistsPage = ({ dispatch,loading, Artists, hasErrors}) => {
-    useEffect(() => {
-        dispatch(fetchArtists())
-    }, [dispatch])
+class ArtistsPage extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            artist: ''
+        };
+    }
 
-    //show loading, error, or success
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.props.dispatch(fetchArtists(this.state.artist))
+    }
 
-    const renderArtists = () => {
-        if (loading) return <p> Loading Artists</p>
-        if (hasErrors) return <p> Unable to display Artists.</p>
-        console.log(Artists)
-        return Artist.map(Artist => <Artist key={Artist.id} Artist={Artist} />)
-    }    
-    return (
-    <section>
-    <div className ="Artistpage">
-    <h1 id ="artists">Artists</h1>
-    {renderArtists()}
-    </div>
-    </section>
-    )
+    renderArtists = () => {
+        if (this.props.loading) return <p> Loading Songs</p>
+        if (this.props.hasErrors) return <p> Unable to display Songs.</p>
+        return this.props.artists.map(artist => <Artist artist={artist.track}/>)
+    }
+
+    render() {
+        return (
+            <>
+                <form onSubmit={e => this.handleSubmit(e)}>
+                    <label>
+                        Artist:
+                <input value={this.state.artist} onChange={e => this.setState({ artist: e.target.value })} type="text" artist="artist" />
+                    </label>
+                    <button>Submit</button>
+                </form>
+                {this.renderArtists()}
+            </>
+        );
+
+    }
 }
-const mapStateToProps = (state) => ({
-    loading: state.Artists.loading,
-    Artists: state.Artists.Artists,
-    hasErrors: state.Artists.hasErrors,
-})
 
+const mapStateToProps = state => {
+    return {
+        loading: state.artist.loading,
+        hasErrors: state.artist.hasErrors,
+        artists: state.artist.artists
+    }
+}
 export default connect(mapStateToProps)(ArtistsPage);

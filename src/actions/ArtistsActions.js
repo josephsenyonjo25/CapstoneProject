@@ -19,19 +19,13 @@ export const getArtistsFailure =() => ({
 
 //Combining all actions in ansycronous function
 
-export function fetchArtists(){
-    return async (dispatch) => {
-        dispatch(getArtists())
-
-        try{
-            const res = await
-            fetch('https://jsonplaceholder.typicode.com/posts')
-            const data = await res.json()
-            console.log(data)
-          dispatch(getArtistsSuccess(data))
-        } catch (error) {
-            dispatch(getArtistsFailure())
+export function fetchArtists(artist) {
+    return async dispatch => {
+        dispatch(getArtists());
+        await fetch(`https://api.discogs.com/database/search?artist=${artist}&token=yySayXxBNNSTSikPoifJIbQGdoTxZrtyhPFXrEXS`)
+            .then(res => res.json())
+            // .then(json => dispatch(getArtistsSuccess(json.data.map(song => song.album))))
+            .then(json => console.log(json))
+            .catch(err => dispatch(getArtistsFailure()))
     }
-
-}
 }

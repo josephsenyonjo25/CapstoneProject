@@ -1,5 +1,5 @@
     
-import React, { useEffect } from "react";
+import React from "react";
 //Redux state is now in the props of this component
 
 const Artist = (props) => {
@@ -9,7 +9,7 @@ const Artist = (props) => {
     return (
         <div style={{width: "150px", height: "300px", display: "inline", paddingRight: "30px"}}>
            
-            <form onSubmit = {handleSubmit}>
+            <form>
                 <label>
                 Artist:
                     <input type ="text" artist ="artist"/>

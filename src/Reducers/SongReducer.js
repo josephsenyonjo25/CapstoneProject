@@ -9,9 +9,8 @@ export const initialState = {
 export default (state =initialState, action) => {
     switch(action.type) {
         case actions.GET_SONGS:
-            return { ...state, loading:false, songs: action.payload}
+            return { ...state, loading:true}
         case actions.GET_SONGS_SUCCESS:
-            console.log(action.payload)
             return {songs:action.payload, loading:false, hasErrors: false}
        case actions.GET_SONGS_FAILURE:
             return { ...state, loading: false, hasErrors: true}

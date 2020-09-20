@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from 'react-redux';
-import {  Album } from '../components/Album';
-import '../App.css';
-//Bring in the Async
-import {fetchAlbums} from '../actions/AlbumsActions'
+import Album from '../components/Album';
+import { fetchAlbums } from '../actions/AlbumsActions'
+import {Container, Col, Row} from 'reactstrap';
 
 //Redux state is now in the props of this component
 class AlbumsPage extends React.Component {
@@ -19,10 +18,16 @@ class AlbumsPage extends React.Component {
         this.props.dispatch(fetchAlbums(this.state.album))
     }
 
-    renderSongs = () => {
+    renderAlbums = () => {
         if (this.props.loading) return <p> Loading Albums</p>
         if (this.props.hasErrors) return <p> Unable to display Albums.</p>
-        return this.props.albums.map(album => <Album album={album.track}/>)
+        return (
+            <Container>
+                <Row>
+                    {this.props.albums.map(album => <Col xs={4} lg={3}><Album album={album} /></Col>)}
+                </Row>
+            </Container>
+        )
     }
 
     render() {
@@ -46,7 +51,7 @@ const mapStateToProps = state => {
     return {
         loading: state.album.loading,
         hasErrors: state.album.hasErrors,
-        songs: state.album.albums
+        albums: state.album.albums
     }
 }
 

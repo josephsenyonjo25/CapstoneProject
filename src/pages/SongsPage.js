@@ -2,7 +2,7 @@ import React from 'react';
 import { fetchSongs, getSongs } from '../actions/SongsActions'
 import { connect } from 'react-redux';
 import Song from "../components/Song"
-import '../App.css';
+import { Container, Col, Row } from 'reactstrap';
 
 class SongsPage extends React.Component {
     constructor() {
@@ -20,13 +20,19 @@ class SongsPage extends React.Component {
     renderSongs = () => {
         if (this.props.loading) return <p> Loading Songs</p>
         if (this.props.hasErrors) return <p> Unable to display Songs.</p>
-        return this.props.songs.map(song => <Song song={song.track}/>)
+        return (
+            <Container>
+                <Row>
+                    {this.props.songs.map(song => <Col><Song key={song.track.url} song={song.track} /></Col>)}
+                </Row>
+            </Container>
+        )
     }
 
     render() {
         return (
             <>
-                <form onSubmit={e => this.handleSubmit(e)}>
+                <form className="d-flex justify-content-center" onSubmit={e => this.handleSubmit(e)}>
                     <label>
                         Song:
                 <input value={this.state.song} onChange={e => this.setState({ song: e.target.value })} type="text" song="song" />

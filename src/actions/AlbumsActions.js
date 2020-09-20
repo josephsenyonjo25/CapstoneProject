@@ -18,20 +18,17 @@ export const getAlbumsFailure =() => ({
 })
 
 //Combining all actions in ansycronous function
-
-export function fetchAlbums(){
-    return async (dispatch) => {
-        dispatch(getAlbums())
-
-        try{
-            const res = await
-            fetch('https://jsonplaceholder.typicode.com/posts')
-            const data = await res.json()
-            console.log(data)
-          dispatch(getAlbumsSuccess(data))
-        } catch (error) {
-            dispatch(getAlbumsFailure())
+export function fetchAlbums(album) {
+    return async dispatch => {
+        dispatch(getAlbums());
+        await fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${album}`, {
+            headers: {
+                "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                "x-rapidapi-key": process.env.REACT_APP_RAPID_KEY
+            }
+        })
+            .then(res => res.json())
+            .then(json => dispatch(getAlbumsSuccess(json.data.map(song => song.album))))
+            .catch(err => dispatch(getAlbumsFailure()))
     }
-
-}
 }

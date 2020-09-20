@@ -4,9 +4,8 @@ export const GET_SONGS_FAILURE = 'GET_SONGS_FAILURE';
 
 //Create my Redux action (using action creators)
 
-export const getSongs = (songs) => ({
+export const getSongs = () => ({
     type: GET_SONGS,
-    payload: songs
 });
 
 export const getSongsSuccess = (Songs) => ({
@@ -21,17 +20,16 @@ export const getSongsFailure = () => ({
 //Combining all actions in ansycronous function
 
 export function fetchSongs(song) {
-    console.log('song:', song);
-
     return async dispatch => {
+        dispatch(getSongs());
         await fetch(`https://shazam.p.rapidapi.com/search?term=${song}`, {
             headers: {
-                'x-rapidapi-key': process.env.REACT_APP_SHAZAM_API,
+                'x-rapidapi-key': process.env.REACT_APP_RAPID_KEY,
                 'x-rapidapi-host': 'shazam.p.rapidapi.com'
             }
         })
             .then(res => res.json())
-            .then(json => dispatch(getSongs(json.tracks.hits)))
-            .catch(() => dispatch(getSongsFailure()))
+            .then(json => dispatch(getSongsSuccess(json.tracks.hits)))
+            .catch(err => dispatch(getSongsFailure()))
     }
 }

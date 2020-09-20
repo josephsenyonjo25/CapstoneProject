@@ -1,7 +1,7 @@
 import * as actions from '../actions/ArtistsActions'
 
 export const initialState = {
-    artist:[],
+    artists:[],
     loading:false,
     hasErrors:false
 }

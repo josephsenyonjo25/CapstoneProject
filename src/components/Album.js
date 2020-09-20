@@ -1,28 +1,20 @@
+import React from 'react';
 
-      import React from 'react';
-      
-      import React, { useEffect } from "react";
-//Redux state is now in the props of this component
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 const Album = (props) => {
     const { album } = props;
-    console.log(album);
 
     return (
-        <div style={{width: "150px", height: "300px", display: "inline", paddingRight: "30px"}}>
-           
-            <form onSubmit = {handleSubmit}>
-                <label>
-                Artist:
-                    <input type ="text" album ="album"/>
-                    <h1>{album.title}</h1>        
-                    <h2>{album.subtitle}</h2>
-                    <p>Add to Cart<input type ="submit"        
-                     value = "Submit" /></p>
-                </label>
-            </form>
-        </div>
-
+        <Card>
+            <CardImg top src={album.cover} alt="Card image cap" />
+            <CardBody>
+                <CardTitle>{album.title}</CardTitle>
+            </CardBody>
+        </Card>
     );
 }
 
