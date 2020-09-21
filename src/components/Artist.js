@@ -1,5 +1,10 @@
     
 import React from "react";
+
+import {
+   Card, CardImg, CardText, CardBody,
+   CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 //Redux state is now in the props of this component
 
 const Artist = (props) => {
@@ -7,20 +12,15 @@ const Artist = (props) => {
     console.log(artist);
 
     return (
-        <div style={{width: "150px", height: "300px", display: "inline", paddingRight: "30px"}}>
-           
-            <form>
-                <label>
-                Artist:
-                    <input type ="text" artist ="artist"/>
-                    <h1>{artist.title}</h1>        
-                    <h2>{artist.subtitle}</h2>
-                    <p>Add to Cart<input type ="submit"        
-                     value = "Submit" /></p>
-                </label>
-            </form>
-        </div>
-
+        
+        <Card>
+            <CardImg top src={artist.image} alt="Card image cap" />
+            <CardBody>
+                <CardTitle>{artist.name}</CardTitle>
+                <CardSubtitle>{artist.subtitle}</CardSubtitle>
+                <a href={artist.share.href}><Button>View More</Button></a>/
+            </CardBody>
+        </Card>
     );
 }
 

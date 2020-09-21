@@ -24,7 +24,7 @@ export function fetchArtists(artist) {
         dispatch(getArtists());
         await fetch(`https://api.discogs.com/database/search?artist=${artist}&token=yySayXxBNNSTSikPoifJIbQGdoTxZrtyhPFXrEXS`)
             .then(res => res.json())
-            // .then(json => dispatch(getArtistsSuccess(json.data.map(song => song.album))))
+            .then(json => dispatch(getArtistsSuccess(json.track.hits)))
             .then(json => console.log(json))
             .catch(err => dispatch(getArtistsFailure()))
     }

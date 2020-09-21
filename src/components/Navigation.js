@@ -7,15 +7,18 @@ import AlbumsPage from '../pages/AlbumsPage';
 import ArtistsPage from '../pages/ArtistsPage';
 
 import styles from "./Navigation.module.css";
+import RegistrationForm from './RegistrationForm';
 
 class Navigation extends Component {
     render() { 
       return (
-        <div className={styles.navigation}> 
+        <div className={styles.navigation} id="Navigation">
+
            
           <Router>
 	          <ul className ='text-center'>
 	            <li><Link to='/'>Home</Link></li>
+              <li><Link to ='/registration'>Subscribe</Link></li>
               <li><Link to='/artists'>Artists</Link></li>
 	            <li><Link to='/albums'>Albums</Link></li>
                 <li><Link to='/songs'>Songs</Link></li>
@@ -23,6 +26,7 @@ class Navigation extends Component {
             
 	          <Switch>
 	            <Route exact path ='/' component={Home} />
+              <Route exact path ='/' component={RegistrationForm} />
 	            <Route path ='/artists' component={ArtistsPage} />
               <Route path ='/albums' component={AlbumsPage} />
               <Route path ='/songs' component={SongsPage} />
