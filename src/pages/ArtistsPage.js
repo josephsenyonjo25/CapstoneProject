@@ -24,8 +24,8 @@ class ArtistsPage extends React.Component {
     }
 
     renderArtists = () => {
-        if (this.props.loading) return <p> Loading Songs</p>
-        if (this.props.hasErrors) return <p> Unable to display Songs.</p>
+        if (this.props.loading) return <p> Loading Artists</p>
+        if (this.props.hasErrors) return <p> Unable to display artists.</p>
         return (
             <Container>
                 <Row>
@@ -37,7 +37,7 @@ class ArtistsPage extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="Search">
                 <form onSubmit={e => this.handleSubmit(e)}>
                     <label>
                         Artist:
@@ -46,7 +46,7 @@ class ArtistsPage extends React.Component {
                     <button>Submit</button>
                 </form>
                 {this.renderArtists()}
-            </>
+            </div>
         );
 
     }

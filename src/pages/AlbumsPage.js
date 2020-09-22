@@ -20,7 +20,7 @@ class AlbumsPage extends React.Component {
 
     renderAlbums = () => {
         if (this.props.loading) return <p> Loading Albums</p>
-        if (this.props.hasErrors) return <p> Unable to display Albums.</p>
+        if (this.props.hasErrors) return <p> Unable to display albums.</p>
         return (
             <Container>
                 <Row>
@@ -32,7 +32,7 @@ class AlbumsPage extends React.Component {
 
     render() {
         return (
-            <>
+            <div className ="Search">
                 <form onSubmit={e => this.handleSubmit(e)}>
                     <label>
                         Album:
@@ -41,7 +41,7 @@ class AlbumsPage extends React.Component {
                     <button>Submit</button>
                 </form>
                 {this.renderAlbums()}
-            </>
+            </div>
         );
 
     }

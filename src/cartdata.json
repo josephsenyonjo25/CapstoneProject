@@ -1,0 +1,79 @@
+{
+"albums":[
+  {"_id": "",
+   "image": "",
+   "title": "", 
+   "artist": "", 
+   "price": "", 
+   "genre":""
+},
+    {
+    "id":"",
+    "image:": "",
+    "title": "",
+    "artist":"",
+    "price":"",
+    "genre":"" 
+    },
+{
+    "id":"",
+    "image:": "",
+    "title": "",
+    "artist":"",
+    "price":"",
+    "genre": ""
+
+},
+{
+    "id":"",
+    "image:": "",
+    "title": "",
+    "artist":"",
+    "price":"",
+    "genre":""
+},
+{
+    "id":"",
+    "image:": "",
+    "title": "",
+    "artist":"",
+    "price":"",
+    "genre":""
+},
+{
+    "id":"",
+    "image:": "",
+    "title": "",
+    "artist":"",
+    "price":"",
+    "genre":""
+},
+{
+    "id":"",
+    "image:": "",
+    "title": "",
+    "artist":"",
+    "price":"",
+    "genre":""
+
+},
+{
+    "id":"",
+    "image:": "",
+    "title": "",
+    "artist":"",
+    "price":"",
+    "genre":""
+},
+{
+    "id":"",
+    "image:": "",
+    "title": "",
+    "artist":"",
+    "price":"",
+    "genre":""
+
+}
+
+]
+}

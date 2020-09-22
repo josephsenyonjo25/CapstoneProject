@@ -19,7 +19,7 @@ class SongsPage extends React.Component {
 
     renderSongs = () => {
         if (this.props.loading) return <p> Loading Songs</p>
-        if (this.props.hasErrors) return <p> Unable to display Songs.</p>
+        if (this.props.hasErrors) return <p> Unable to display songs.</p>
         return (
             <Container>
                 <Row>
@@ -31,7 +31,7 @@ class SongsPage extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="Search">
                 <form className="d-flex justify-content-center" onSubmit={e => this.handleSubmit(e)}>
                     <label>
                         Song:
@@ -40,7 +40,7 @@ class SongsPage extends React.Component {
                     <button>Submit</button>
                 </form>
                 {this.renderSongs()}
-            </>
+            </div>
         );
 
     }

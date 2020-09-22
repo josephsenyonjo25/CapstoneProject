@@ -1,4 +1,4 @@
-/*.App {
+.App {
   text-align: center;
 }
 
@@ -35,7 +35,7 @@
   to {
     transform: rotate(360deg);
   }
-}*/
+}
 body{
   font-family: sans-serif;
   padding: 10px;
@@ -61,4 +61,39 @@ body{
 }
 #Navigation a:hover{
   color: lightgrey;
+}
+.Search{
+  /*background-color: #ddddff;
+  border: 2px solid gray;*/
+  padding: 20px;
+  width: 90%;
+}
+.Search label{
+  /*color: gray;*/
+  font-size: 1.2em;
+}
+.Search input{
+  margin: 0 20px 0 5px;
+  font-size: 1.1em;
+}
+.Search button{
+  /*background-color: #daedf4;
+  color: gray;
+  border: 2px solid gray;*/
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.Search button:hover{
+  background-color:gray;
+  color:#daedf4;
+}
+
+.Footer{
+  text-align: center;
+  font-size: 0.9em;
+  color: gray;
+  padding: 5px;
+  margin-top: 20px;
 }

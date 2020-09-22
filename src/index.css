@@ -1,13 +1,167 @@
-body {
+@import url("https://fonts.org.googleapis.com/css2?family=Montserrat&display=swap")
+
+/*body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /*-moz-osx-font-smoothing: grayscale;*/
+/*}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}*/;
+
+html {
+  font-size:62.5%;
+  box-sizing:border-box;
+}
+body,
+#root {
+  height:100vh;
+  margin:0;
+}
+body,
+input,
+select,
+button,
+textarea{
+  font-family:Montserrat, Helvetica, Arial, sans-serif;
+  font-size:1.6rem;
+}
+
+.grid-container{
+  display:grid;
+  grid-template-areas:
+  "header"
+  "main"
+  "footer";
+  grid-template-rows:5rem 1fr 5rem;
+  grid-template-columns:1fr;
+  height:100%;
+}
+a:hover{
+  color: #ff8000;
+}
+a{
+  text-decoration:none;
+}
+.content{
+  display:flex;
+  flex-wrap:wrap;
+}
+.main{
+  flex:3 60rem;
+}
+.sidebar{
+  flex: 1 20rem;
+}
+.albums{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  padding:0;
+  margin:0;
+  list-style-type:none;
+}
+.albums li{
+  flex: 0 1 29rem;
+  height: 47 1rem;
+  padding:1rem;
+}
+.album{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:100%;
+}
+
+
+
+.album img{
+  max-width:37rem;
+  max-height:37rem;
+}
+.album-price{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.album-price div,
+.album-price button{
+  text-align:center;
+  flex:1;
+}
+.album-price  div{
+  font-size: 2rem;
+}
+.button{
+  padding:1rem;
+  border: .1rem #c0c0c0 solid;
+  background-color: #f0f0f0
+  ;
+}
+
+.button:hover{
+  border:0.1rem #808080 solid;
+}
+.button.add{
+  background-color: #f0c040;
+}
+
+.filter{
+  display:flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem;
+  border-bottom: .1rem #c0c0c0 solid;
+}
+.filter div{
+  flex:1;
+}
+.cart{
+  padding: 1rem;
+  margin: 1rem;
+  display:flex;
+
+}
+.cart-header{
+  border-bottom: .1rem #c0c0c0 solid;
+}
+.cart-items{
+  padding:0;
+  width:100%;
+  list-style-type:none;
+}
+.cart-items img{
+  width:5rem;
+}
+.cart-items li{
+  display:flex;
+}
+.cartItems li div{
+  padding: .5rem;
+}
+.cartItems li div:last-child{
+  flex:1;
+}
+.right{
+  text-align:right;
+}
+.total{
+  display:flex ;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+}
+.total > div{
+  font-size:2rem;
+}
+.total >div, 
+.total > button {
+  flex:1;
 }
