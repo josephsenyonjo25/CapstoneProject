@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-//import { ListGroup } from 'reactstrap';
+import formatCurrency from "../util";
+import Fade from "react-reveal/Fade";
+
 
 export default class Cartbar extends Component{
     constructor(props){
@@ -27,6 +29,7 @@ this.state={
             ccn:this.state.ccn,
             cartItems:this.props.cartItems,
         };
+        this.props.createOrder(order);
     };
     render(){
         const { cartItems } =this.props;
@@ -42,6 +45,7 @@ this.state={
             
 <div>
     <div className="cart">
+        <Fade left cascade>
         <ul className="cart-items">
                 {cartItems.map(item =>(
                 <li key={Item._id}>
@@ -62,6 +66,7 @@ this.state={
                 </li>
                 ))}
         </ul>
+        </Fade>
 </div>
 {cartItems.length!==0 && (
     <div>
@@ -81,6 +86,7 @@ this.state={
         </div>
 </div>
 {this.state.showCheckout && (
+    <Fade right cascade>
     <div className="cart">
     <form onSubmit={this.createOrder}>
         <ul className="form-container">
@@ -141,6 +147,7 @@ this.state={
         </ul>
     </form>
     </div>
+    </Fade>
 )}
 </div>
 )}

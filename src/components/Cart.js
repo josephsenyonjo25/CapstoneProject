@@ -12,6 +12,9 @@ class App extends React.Component() {
             sort:"",
         };
     }
+    createOrder =(order) =>{
+        alert("save order for " + order.name);
+    };
     removeFromCart =(album) =>{
         const cartItems=this.state.cartItems.slice();
         this.setState({
@@ -88,7 +91,11 @@ if(event.target.value===""){
                         <Albums albums = {this.state.albums} addToCart={this.addToCart}></Albums>
                     </div>
                     <div className="sidebar">
-                        <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} />
+                        <Cart cartItems={this.state.cartItems}
+                         removeFromCart={this.removeFromCart} 
+                         createOrder={this.createOrder}
+                         />
+                         
                     </div>
                 </div>
             </main>
