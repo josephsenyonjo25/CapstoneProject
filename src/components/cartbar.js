@@ -2,6 +2,32 @@ import React, { Component } from 'react';
 //import { ListGroup } from 'reactstrap';
 
 export default class Cartbar extends Component{
+    constructor(props){
+super(props)
+this.state={
+    firstName:"",
+    lastName:"",
+    email:"",
+    address:"",
+    password:"",
+    ccn:  "",    
+    showCheckout:false};
+    }
+    handleInput =(e) =>{
+        this.setState({[e.target.name]: e.target.value});
+    };
+    createOrder = (e) =>{
+        e.preventDefault();
+        const order ={
+            firstName:this.state.firstname,
+            lastName:this.state.lastName,
+            email:this.state.email,
+            address:this.state.address,
+            password:this.state.password,
+            ccn:this.state.ccn,
+            cartItems:this.props.cartItems,
+        };
+    };
     render(){
         const { cartItems } =this.props;
         return(
@@ -38,6 +64,7 @@ export default class Cartbar extends Component{
         </ul>
 </div>
 {cartItems.length!==0 && (
+    <div>
     <div className ="cart">
     <div className="total">
         <div>
@@ -47,8 +74,74 @@ export default class Cartbar extends Component{
                 
                 )}
         </div>
-        <button className ="button add">Proceed</button>
+        <button onClick={()=>{
+            this.setState({showcheckOut:true});
+        }}
+        className ="button add">Proceed</button>
         </div>
+</div>
+{this.state.showCheckout && (
+    <div className="cart">
+    <form onSubmit={this.createOrder}>
+        <ul className="form-container">
+            <li>
+                <label>firstName</label>
+            <input
+                name="name"
+                type="text" 
+                required 
+                onChange={this.handleInput}>   
+                </input>
+            </li>
+            <li>
+                <label>lastName</label>
+                <input
+                name="lastname" 
+                type="text" 
+                required onChange={this.handleInput}>    
+                </input>
+            </li>
+            <li>
+                <label>Email</label>
+                <input
+                name="email" 
+                type="email" 
+                required onChange={this.handleInput}>
+                </input>
+            </li>
+            <li>
+                <label>Address</label>
+                <input
+                name="address" 
+                type="text" 
+                required onChange={this.handleInput}>
+                </input>
+            </li>
+            <li>
+                <label>Password</label>
+                <input
+                name="password" 
+                type="password" 
+                required onChange={this.handleInput}>
+                </input>
+            </li>
+            <li>
+                <label>ccn</label>
+                <input
+                name="ccn" 
+                type="text" 
+                required onChange={this.handleInput}>
+                </input>
+            </li>
+            <li>
+                <button className ="add" type="submit">
+                    Checkout
+                </button>
+            </li>
+        </ul>
+    </form>
+    </div>
+)}
 </div>
 )}
 
