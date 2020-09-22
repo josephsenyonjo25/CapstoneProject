@@ -7,7 +7,7 @@ class App extends React.Component() {
         super();
         this.state={
             albums: data.albums,
-            cartItems:[],
+            cartItems:localStorage.getItem("cartItems")?JSON.parse(localStorage.getItem("cartItems")):[],
             genre:"",
             sort:"",
         };
@@ -17,7 +17,9 @@ class App extends React.Component() {
         this.setState({
             cartItems:cartItems.filter(c=>c._id!==album._id),
         });
-        
+        localStorage.setItem("cartItems", 
+        JSON.Stringify(cartItems.filter(c=>c._id!==album._id))
+        );
     };
 addToCart = (album) =>{
     const cartItems=this.state.cartItems.slice();
@@ -32,6 +34,7 @@ addToCart = (album) =>{
         cartItems.push({...album, count: 1});
     }
     this.setState({cartItems})
+    localStorage.setItem("cartItems", JSON.Stringify(cartItems));
 };   
 sortProducts = (event) => {
 const sort =event.target.value;        
@@ -85,7 +88,7 @@ if(event.target.value===""){
                         <Albums albums = {this.state.albums} addToCart={this.addToCart}></Albums>
                     </div>
                     <div className="sidebar">
-                        <Cart cartItems={this.state.cartItems} />
+                        <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} />
                     </div>
                 </div>
             </main>
