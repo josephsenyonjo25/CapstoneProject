@@ -10,7 +10,7 @@ export const getArtists =() => ({
 
 export const getArtistsSuccess =(Artists) => ({
     type:GET_ARTISTS_SUCCESS,
-    payload:Artists,
+    payload: Artists,
 })
 
 export const getArtistsFailure =() => ({
@@ -22,10 +22,14 @@ export const getArtistsFailure =() => ({
 export function fetchArtists(artist) {
     return async dispatch => {
         dispatch(getArtists());
-        await fetch(`https://api.discogs.com/database/search?artist=${artist}&token=yySayXxBNNSTSikPoifJIbQGdoTxZrtyhPFXrEXS`)
+        await fetch(`https://theaudiodb.p.rapidapi.com/search.php?s=${artist}`, {
+            headers: {
+                "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
+                "x-rapidapi-key": "445be346f8mshda9feca1daca1e7p1d2417jsne43be1bf7d47"
+            }
+        })
             .then(res => res.json())
-            .then(json => dispatch(getArtistsSuccess(json.track.hits)))
-            .then(json => console.log(json))
+            .then(json => dispatch(getArtistsSuccess(json.artists)))
             .catch(err => dispatch(getArtistsFailure()))
     }
 }

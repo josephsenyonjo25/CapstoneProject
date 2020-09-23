@@ -26,10 +26,13 @@ class ArtistsPage extends React.Component {
     renderArtists = () => {
         if (this.props.loading) return <p> Loading Artists</p>
         if (this.props.hasErrors) return <p> Unable to display artists.</p>
+        if (!this.props.artists)
+            return <p>No Artists Found</p>
+
         return (
             <Container>
                 <Row>
-                    {this.props.artists.map(artist => <Col><Artist key={artist.name} artist={artist.name} /></Col>)}
+                    {this.props.artists.map(artist => <Col key={artist.idArtist} ><Artist artist={artist} /></Col>)}
                 </Row>
             </Container>
         )

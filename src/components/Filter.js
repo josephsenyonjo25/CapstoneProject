@@ -1,5 +1,3 @@
-const { ReactComponent } = require("*.svg");
-
 import React, {Component} from 'react';
 
 export default class Filter extends Component {
@@ -7,7 +5,7 @@ export default class Filter extends Component {
         return(
         <div className="filter">
             <div className="filter-result">{this.props.count}</div>
-            <div className="filter-sort">
+            <div className="filter-sort"></div>
             Order{""}
             <select value ={this.props.sort} onChange={this.props.sortAlbums}>
                 <option>Latest</option>
@@ -25,7 +23,6 @@ export default class Filter extends Component {
                 </select>
             </div>
         </div>
- 
         );
     }
 }

@@ -9,16 +9,16 @@ import {
 
 const Artist = (props) => {
     const { artist } = props;
-    console.log(artist);
+
+    const shareButton = artist.strWebsite ? <a href={'http://' + artist.strWebsite}><Button>View More</Button></a> : null;
 
     return (
-        
         <Card>
-            <CardImg top src={artist.image} alt="Card image cap" />
+            <CardImg top src={artist.strArtistThumb} alt="Card image cap" />
             <CardBody>
-                <CardTitle>{artist.name}</CardTitle>
-                <CardSubtitle>{artist.subtitle}</CardSubtitle>
-                <a href={artist.share.href}><Button>View More</Button></a>/
+                <CardTitle>{artist.strName}</CardTitle>
+                <CardSubtitle>{artist.strCountry}</CardSubtitle>
+                {shareButton}
             </CardBody>
         </Card>
     );

@@ -23,7 +23,7 @@ class SongsPage extends React.Component {
         return (
             <Container>
                 <Row>
-                    {this.props.songs.map(song => <Col><Song key={song.track.url} song={song.track} /></Col>)}
+                    {this.props.songs.map(song => <Col key={song.track.url}><Song song={song.track} /></Col>)}
                 </Row>
             </Container>
         )
