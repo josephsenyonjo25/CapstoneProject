@@ -1,6 +1,9 @@
 import React from "react";
 import data from "./data.json";
-import Filter from "./Filter";
+import Album from "./components/Album"
+import Filter from "./components/Filter";
+import cartbar from "./components/Cart";
+import store from "./store";
 
 class App extends React.Component() {
     constructor() {
@@ -77,6 +80,7 @@ class App extends React.Component() {
     };
     render() {
         return (
+            <Provider store ={store}>
             <div className="grid-container">
                 <header>
                     <a href="/">Shopping Cart</a>
@@ -101,6 +105,7 @@ class App extends React.Component() {
                 </main>
                 <footer>All rights reserved</footer>
             </div>
+            </Provider>
         );
     }
 }

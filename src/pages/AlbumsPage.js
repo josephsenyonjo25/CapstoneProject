@@ -24,7 +24,7 @@ class AlbumsPage extends React.Component {
         return (
             <Container>
                 <Row>
-                    {this.props.albums.map(album => <Col key={album.id} xs={4} lg={3}><Album album={album} /></Col>)}
+                    {this.props.albums.map(album => <Col key ={album.artist.genre} xs={4} lg={3}><Album album={album} /></Col>)}
                 </Row>
             </Container>
         )

@@ -3,13 +3,18 @@ import formatCurrency from "../util";
 import Fade from 'react-reveal/Fade';
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
+import { connect } from 'react-redux';
+import {fetchAlbums} from "../actions/Album2Actions";
 
-export default class cartProducts extends Component {
+ class cartProducts extends Component {
     constructor(props){
         super(props);
         this.state ={
             album:null,
         }
+    }
+    componentDidMount() {
+        this.props.fetchAlbums
     }
     openModal =(album) =>{
         thissetState({album});
@@ -22,7 +27,10 @@ export default class cartProducts extends Component {
         return(
             <div>
             <Fade bottom cascade>
-               <ul className="albums">
+                {
+                 !this.props.products ?
+                  <div>Loading...</div>:
+                 <ul className="albums">
                    {this.props.albums.map(album =>
                         <li key={album._id}>
                            <div className="album">
@@ -43,7 +51,9 @@ export default class cartProducts extends Component {
                                 </div> 
                           </li>  
                     ))}
-                   </ul> 
+                   </ul>    
+                }
+               
                    </Fade>
                    {
                        album &&
@@ -95,7 +105,7 @@ export default class cartProducts extends Component {
 
     }
 
-
-
-
-
+export default connect((state)=>({album:state.albums.filteredItems}),{
+fetchAlbums,
+}
+)(Albums);

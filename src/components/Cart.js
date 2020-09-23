@@ -7,7 +7,9 @@ class App extends React.Component() {
         super();
         this.state = {
             albums: data.albums,
-            cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
+            cartItems: localStorage.getItem("cartItems")
+             ? JSON.parse(localStorage.getItem("cartItems")) 
+             : [],
             genre: "",
             sort: "",
         };
@@ -22,11 +24,9 @@ class App extends React.Component() {
                 <main>
                     <div className="content">
                         <div className="main">
-                            <Filter count={this.state.albums.length}>
-                                genre={this.state.genre}
-                            sort={this.state.sort}
+                            <Filter> 
                             </Filter>
-                            <Albums albums={this.state.albums} addToCart={this.addToCart}></Albums>
+                            <Albums albums addToCart={this.addToCart}></Albums>
                         </div>
                         <div className="sidebar">
                             <Cart cartItems={this.state.cartItems}
@@ -43,7 +43,4 @@ class App extends React.Component() {
     }
 }
 
-export default App;
-
-
-
+export default App;*/

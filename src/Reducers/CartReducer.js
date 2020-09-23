@@ -1,4 +1,4 @@
-import * as actions from "../actions/CartActions";
+/*import * as actions from "../actions/CartActions";
 
 const initialState = {
     cartItems: []
@@ -34,4 +34,4 @@ export default function (state = initialState, actions) {
         default:
             return state
     }
-}
+}*/
