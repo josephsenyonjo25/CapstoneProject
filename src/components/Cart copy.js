@@ -4,6 +4,7 @@ import Album from "./components/Album"
 import Filter from "./components/Filter";
 import cartbar from "./components/Cart";
 import store from "./store";
+import {Provider} from "react-redux";
 
 class App extends React.Component() {
     constructor() {

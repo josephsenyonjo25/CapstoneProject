@@ -26,11 +26,11 @@ export const filterAlbums =(albums, title) => (dispatch) =>{
 }
 export const sortAlbums =(filteredAlbums, sort) => (dispatch) =>{
     const sortedAlbums = filteredAlbums.slice();
-    if(sort === "") {
+    if(sort === "latest") {
         sortedAlbums.sort((x,y) => (x._id > y._id? 1:-1))
     }else {
         sortedAlbums.sort ((x,y) =>
-            sort === "lowestprice"
+            sort === "lowest"
             ?x.price . y.price
             ? 1
             :-1

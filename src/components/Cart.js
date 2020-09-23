@@ -1,6 +1,9 @@
 import React from "react";
 import data from "./data.json";
+import Albums from "./components/Albums";
 import Filter from "./Filter";
+import store from "./store";
+import {Provider} from "react-redux";
 
 class App extends React.Component() {
     constructor() {
@@ -10,8 +13,7 @@ class App extends React.Component() {
             cartItems: localStorage.getItem("cartItems")
              ? JSON.parse(localStorage.getItem("cartItems")) 
              : [],
-            genre: "",
-            sort: "",
+           
         };
     }
 
@@ -43,4 +45,4 @@ class App extends React.Component() {
     }
 }
 
-export default App;*/
+export default App;
