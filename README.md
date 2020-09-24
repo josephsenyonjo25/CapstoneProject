@@ -7,14 +7,6 @@ This is a Capstone Project for my Per Scholas Training bootcamp (June 15 2020 - 
 
 Project stipulations:
 
-A README.md file with explanations of the technologies used, the approach taken, a link to your live site, installation instructions, unsolved problems, etc.
-Project must be approved by Instructor approval at the start of project week
- Project planning board used throughout project
-readme file clearly documents the purpose of the project as a problem statement
- readme file clearly documents the target end user for this program.
- readme file has embedded link (not url) to publicly deployed app
- Git repo has at least 30 git commit
- 
 
 Frontend Requirements 
 
