@@ -3,10 +3,10 @@
     {
       "_id": "",
       "image": "",
-      "title": "",
-      "artist": "",
-      "price": "",
-      "genre": ""
+      "title": "Bad",
+      "artist": "Michael Jackson",
+      "price": "25",
+      "genre": "Pop"
     },
     {
       "id": "",

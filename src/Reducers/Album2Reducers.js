@@ -10,7 +10,7 @@ export const albumsReducer = (state = {}, action) => {
         title: action.payload.title,
         filteredItems: action.payload.items,
       };
-    case ORDER_PRODUCTS_BY_PRICE:
+    case ORDER_ALBUMS_BY_PRICE:
       return {
         ...state,
         sort: action.payload.sort,

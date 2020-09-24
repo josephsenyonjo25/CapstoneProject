@@ -19,9 +19,9 @@ export const addToCart =(items, product) =>(dispatch) =>{
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
 
-export const removeFromCart =(items, album) = (dispatch) ={
+export const removeFromCart =(items, album) = (dispatch) => {
     const cartItems = items.slice().filter(
         x=> x._id !== product._id 
-    );
+    )
     dispatch({type:REMOVE_FROM_CART, payload:{cartItems}})
 }
