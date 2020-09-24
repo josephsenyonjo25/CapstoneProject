@@ -1,4 +1,4 @@
-/*import React from "react";
+import React from "react";
 import data from "./data.json";
 import Albums from "./components/Albums";
 import Filter from "./Filter";
@@ -43,4 +43,4 @@ class App extends React.Component() {
   }
 }
 
-export default App;*/
+export default App;
