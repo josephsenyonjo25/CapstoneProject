@@ -1,79 +1,76 @@
 {
-"albums":[
-  {"_id": "",
-   "image": "",
-   "title": "", 
-   "artist": "", 
-   "price": "", 
-   "genre":""
-},
+  "albums": [
     {
-    "id":"",
-    "image:": "",
-    "title": "",
-    "artist":"",
-    "price":"",
-    "genre":"" 
+      "_id": "",
+      "image": "",
+      "title": "",
+      "artist": "",
+      "price": "",
+      "genre": ""
     },
-{
-    "id":"",
-    "image:": "",
-    "title": "",
-    "artist":"",
-    "price":"",
-    "genre": ""
-
-},
-{
-    "id":"",
-    "image:": "",
-    "title": "",
-    "artist":"",
-    "price":"",
-    "genre":""
-},
-{
-    "id":"",
-    "image:": "",
-    "title": "",
-    "artist":"",
-    "price":"",
-    "genre":""
-},
-{
-    "id":"",
-    "image:": "",
-    "title": "",
-    "artist":"",
-    "price":"",
-    "genre":""
-},
-{
-    "id":"",
-    "image:": "",
-    "title": "",
-    "artist":"",
-    "price":"",
-    "genre":""
-
-},
-{
-    "id":"",
-    "image:": "",
-    "title": "",
-    "artist":"",
-    "price":"",
-    "genre":""
-},
-{
-    "id":"",
-    "image:": "",
-    "title": "",
-    "artist":"",
-    "price":"",
-    "genre":""
-
-}
-
-]
+    {
+      "id": "",
+      "image:": "",
+      "title": "",
+      "artist": "",
+      "price": "",
+      "genre": ""
+    },
+    {
+      "id": "",
+      "image:": "",
+      "title": "",
+      "artist": "",
+      "price": "",
+      "genre": ""
+    },
+    {
+      "id": "",
+      "image:": "",
+      "title": "",
+      "artist": "",
+      "price": "",
+      "genre": ""
+    },
+    {
+      "id": "",
+      "image:": "",
+      "title": "",
+      "artist": "",
+      "price": "",
+      "genre": ""
+    },
+    {
+      "id": "",
+      "image:": "",
+      "title": "",
+      "artist": "",
+      "price": "",
+      "genre": ""
+    },
+    {
+      "id": "",
+      "image:": "",
+      "title": "",
+      "artist": "",
+      "price": "",
+      "genre": ""
+    },
+    {
+      "id": "",
+      "image:": "",
+      "title": "",
+      "artist": "",
+      "price": "",
+      "genre": ""
+    },
+    {
+      "id": "",
+      "image:": "",
+      "title": "",
+      "artist": "",
+      "price": "",
+      "genre": ""
+    }
+  ]
 }

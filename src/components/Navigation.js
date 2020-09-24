@@ -1,39 +1,62 @@
-import React, { Component } from 'react';
-import '../App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Home from './Home';
-import SongsPage from '../pages/SongsPage';
-import AlbumsPage from '../pages/AlbumsPage';
-import ArtistsPage from '../pages/ArtistsPage';
-// import Cart from '../components/Cart';
-// import CartBar from '../components/CartBar';
+import React, { Component } from "react";
+import "../App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
+import Home from "./Home";
+import SongsPage from "../pages/SongsPage";
+import AlbumsPage from "../pages/AlbumsPage";
+import ArtistsPage from "../pages/ArtistsPage";
+import { logout } from "../actions/AuthActions";
 
 import styles from "./Navigation.module.css";
+import { connect } from "react-redux";
 
 class Navigation extends Component {
   render() {
     return (
       <div className={styles.navigation} id="Navigation">
-
-
         <Router>
-          <ul className='text-center'>
-            <li><Link to='/'>Home</Link></li>
-            {/* <li><Link to ='/registration'>Subscribe</Link></li> */}
-            <li><Link to='/artists'>Artists</Link></li>
-            <li><Link to='/albums'>Albums</Link></li>
-            <li><Link to='/songs'>Songs</Link></li>
-            {/* <li><Link to='/cart'>Cart</Link></li>
-            <li><Link to='/cartbar'>Cart Bar</Link></li> */}
+          <ul className="justify-content-center">
+            <div
+              className="d-flex justify-content-between"
+              style={{ minWidth: "400px" }}
+            >
+              {this.props.authenticated ? null : (
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+              )}
+              {this.props.authenticated ? (
+                <>
+                  <li>
+                    <Link to="/artists">Artists</Link>
+                  </li>
+                  <li>
+                    <Link to="/albums">Albums</Link>
+                  </li>
+                  <li>
+                    <Link to="/songs">Songs</Link>
+                  </li>
+                  <li>
+                    <Link onClick={this.props.reduxLogout} to="/">
+                      Logout
+                    </Link>
+                  </li>
+                </>
+              ) : null}
+            </div>
           </ul>
 
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/artists' component={ArtistsPage} />
-            <Route path='/albums' component={AlbumsPage} />
-            <Route path='/songs' component={SongsPage} />
-            {/* <Route path='/cart' component={Cart} />
-            <Route path='/carbar' component={CartBar} /> */}
+            <Route exact path="/" component={Home} />
+            <Route path="/artists" component={ArtistsPage} />
+            <Route path="/albums" component={AlbumsPage} />
+            <Route path="/songs" component={SongsPage} />
           </Switch>
         </Router>
       </div>
@@ -41,5 +64,17 @@ class Navigation extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.auth.authenticated,
+  };
+};
 
-export default Navigation;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    reduxLogout: () => dispatch(logout()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+ 

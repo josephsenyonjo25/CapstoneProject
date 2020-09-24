@@ -1,24 +1,28 @@
-export const CART_ADD = "CART_ADD"
-export const CART_REMOVE = "CART_REMOVE"
-export const CART_INCREMENT = "CART_INCREMENT"
+import { ADD_TO_CART, REMOVE_FROM_CART } from "../types";
 
-export function cartAdd(album) {
-    return {
-        type: CARD_ADD,
-        payload: album
+export const addToCart = (product) => (dispatch, getState) => {
+  const cartItems = getState().cart.cartItems.slice();
+  let alreadyExists = false;
+  cartItems.forEach((x) => {
+    if (x._id === product._id) {
+      alreadyExists = true;
+      x.count++;
     }
-}
+  });
+  if (!alreadyExists) {
+    cartItems.push({ ...product, count: 1 });
+  }
+  dispatch({
+    type: ADD_TO_CART,
+    payload: { cartItems },
+  });
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
 
-export function cardDelete(id) {
-    return {
-        type: CART_REMOVE,
-        id: id
-    }
-}
-
-export function cartIncrement(id) {
-    return {
-        type: CART_INCREMENT,
-        id: id
-    }
-}
+export const removeFromCart = (product) => (dispatch, getState) => {
+  const cartItems = getState()
+    .cart.cartItems.slice()
+    .filter((x) => x._id !== product._id);
+  dispatch({ type: REMOVE_FROM_CART, payload: { cartItems } });
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
