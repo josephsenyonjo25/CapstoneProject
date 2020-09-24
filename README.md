@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-This is a Capstone Project for my Per Scholas Training bootcamp (June 15 2020 - September 25, 2020(graduation day). 
+This is a Capstone Project for my Per Scholas Training bootcamp (June 15 2020 - September 25, 2020(graduation day). It is still a work in progress.
 
 
 
