@@ -1,7 +1,33 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-This is a Capstone Project for my Per Scholas Training bootcamp (June 15 2020 - September 25, 2020(graduation day). It is still a work in progress.
+This is a Capstone Project for my Per Scholas Training bootcamp (June 15 2020 - September 25, 2020(graduation day). It is still a work in progress as I experienced a lot of technical glitches in addition to implementation due to difficulty finding appropriate working apis.
+
+The front end is deployed on
+https://jolly-wescoff-62b44d.netlify.app
+The backend link is https://rocky-mesa-30385.herokuapp.com/
+Git link:  https://git.heroku.com/rocky-mesa-30385.git
+
+
+Techonology Used:
+Front-end
+Axos
+React-Redux
+React-Router
+React-Modal
+React-Reveal
+mdbreact
+redux-think
+Reactstrap
+Bootstrap
+Redux-form
+mdbreact
+nodemon
+
+Back-end
+SpringBoot
+Postgres SQL
+Heroku
 
 
 
